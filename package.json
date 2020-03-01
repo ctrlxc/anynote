@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-ts",
+  "version": "0.0.1",
+  "description": "nuxt typescript project / spa mode / nuxt + buefy + typescript",
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start",
+    "lint": "eslint --ext .ts,.js,.vue ."
+  },
+  "dependencies": {
+    "@mdi/font": "^4.9.95",
+    "@nuxt/typescript-runtime": "^0.3.9",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "core-js": "^2.6.11",
+    "firebase": "^7.9.3",
+    "nuxt": "^2.11.0",
+    "nuxt-buefy": "^0.3.2",
+    "nuxt-property-decorator": "^2.5.1"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.5.7",
+    "@nuxtjs/eslint-config-typescript": "^1.0.2",
+    "eslint": "^6.8.0"
+  }
+}
