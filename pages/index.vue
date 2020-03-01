@@ -12,7 +12,7 @@
         </b-button>
       </div>
     </div>
-    <h1>Notes Index</h1>
+    <h1>Note Index</h1>
     <ul>
       <li v-for="(item, key) of notes" :key="key">
         {{ key }}
