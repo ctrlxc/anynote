@@ -21,6 +21,7 @@ export default class NotesId extends Vue {
   note: INote = {
     id: '',
     content: '',
+    user: '',
     createtime: new Date()
   }
 
@@ -29,6 +30,7 @@ export default class NotesId extends Vue {
       .then((one) => {
         this.note.id = one.id
         this.note.content = one.data()?.content
+        this.note.user = one.data()?.user
         this.note.createtime = one.data()?.createtime
       })
   }

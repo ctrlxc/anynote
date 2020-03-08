@@ -12,20 +12,17 @@
         </b-button>
       </div>
     </div>
-    <h1>Note Index</h1>
-    <ul>
-      <li v-for="(item, key) of notes" :key="key">
-        {{ key }}
-        {{ item }}
-      </li>
-    </ul>
+
+    <div class="">
+      <note v-for="(item, key) of notes" :key="key" :note="item" />
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { INote } from '~/components/Note.vue'
-import { db } from '~/plugins/firebase'
+import { db, auth } from '~/plugins/firebase'
 
 @Component({
   components: {
@@ -49,7 +46,9 @@ export default class Index extends Vue {
           this.notes_.push({
             id: doc.id,
             content: doc.data().content,
-            createtime: doc.data().createtime
+            createtime: doc.data().createtime,
+            user: auth().currentUser?.uid || ''
+            // user: db.doc(`users/${auth().currentUser.uid}`).ref
           })
         })
       })
@@ -64,7 +63,8 @@ export default class Index extends Vue {
 
     const note = {
       content: this.newContent,
-      createtime: new Date()
+      createtime: new Date(),
+      user: auth().currentUser?.uid || ''
     }
 
     db.collection('notes').add(note)

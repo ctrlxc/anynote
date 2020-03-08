@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
-import { auth } from '~/plugins/firebase'
+import { db, auth } from '~/plugins/firebase'
 
 @Component
 export default class Default extends Vue {
@@ -70,10 +70,24 @@ export default class Default extends Vue {
     }
   }
 
+  save (user: firebase.User) {
+    for (const p of user.providerData) {
+      if (!p) {
+        continue
+      }
+
+      db.collection('users').doc(user.uid).set(Object.assign({}, p))
+        .then(() => {
+          this.$buefy.toast.open('updated user!')
+        })
+    }
+  }
+
   mounted () {
     auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user
+        this.save(user)
       } else {
         this.user = null
       }
