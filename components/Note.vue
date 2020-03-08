@@ -2,13 +2,13 @@
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
+        <img src="" alt="any-picture">
       </p>
     </figure>
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>{{ note.user }}</strong> <small>@johnsmith</small> <small>{{ note.createtime }}}</small>
+          <strong>{{ note.user }}</strong> <small>@any-name</small> <small>{{ note.createtime }}}</small>
           <br>
           {{ note.content }}
         </p>
